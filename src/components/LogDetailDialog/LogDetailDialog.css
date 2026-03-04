@@ -1,0 +1,8 @@
+.log-detail-dialog .ant-descriptions-item-label {
+  width: 100px;
+  font-weight: 500;
+}
+
+.log-detail-dialog .ant-descriptions-item-content {
+  width: calc(100% - 100px);
+}

@@ -1,0 +1,83 @@
+01-16 15:00:00.000 54321 54321 F Critical: Critical system failure detected
+01-16 15:00:01.100 54321 54321 E Error: Database connection lost
+01-16 15:00:02.200 54321 54321 E Error: Failed to reconnect to database
+01-16 15:00:03.300 54321 54321 E Error: Connection timeout after 30 seconds
+01-16 15:00:04.400 54321 54321 E Error: Retrying connection...
+01-16 15:00:05.500 54321 54321 E Error: Retry attempt 1 failed
+01-16 15:00:06.600 54321 54321 E Error: Retry attempt 2 failed
+01-16 15:00:07.700 54321 54321 E Error: Retry attempt 3 failed
+01-16 15:00:08.800 54321 54321 W Warning: Max retry attempts reached
+01-16 15:00:09.900 54321 54321 W Warning: Switching to offline mode
+01-16 15:00:10.000 54321 54321 I System: Entering offline mode
+01-16 15:00:11.100 54321 54321 I Offline: Offline mode activated
+01-16 15:00:12.200 54321 54321 W Warning: Some features unavailable
+01-16 15:00:13.300 54321 54321 I UI: Showing offline banner
+01-16 15:00:14.400 54321 54321 I UserAction: User clicked retry
+01-16 15:00:15.500 54321 54321 I Retry: Attempting to reconnect
+01-16 15:00:16.600 54321 54321 D Network: Checking network availability
+01-16 15:00:17.700 54321 54321 D Network: Network is available
+01-16 15:00:18.800 54321 54321 I Retry: Reconnecting to database
+01-16 15:00:19.900 54321 54321 I Database: Connection established
+01-16 15:00:20.000 54321 54321 I System: Exiting offline mode
+01-16 15:00:21.100 54321 I System: Back to normal operation
+01-16 15:00:22.200 54321 I UI: Removing offline banner
+01-16 15:00:23.300 54321 I Sync: Starting sync to recover data
+01-16 15:00:24.400 54321 54321 D Sync: Fetching missed data
+01-16 15:00:25.500 54321 54321 D Sync: Data received - 50 records
+01-16 15:00:26.600 54321 54321 I Sync: Recovery sync completed
+01-16 15:00:30.000 54321 54321 E Error: File not found error
+01-16 15:00:31.100 54321 54321 E Error: Failed to read file: /path/to/file.txt
+01-16 15:00:32.200 54321 54321 E Error: Permission denied
+01-16 15:00:33.300 54321 54321 W Warning: Using default file instead
+01-16 15:00:34.400 54321 54321 I Fallback: Fallback to default configuration
+01-16 15:00:35.500 54321 54321 I Fallback: Default configuration loaded
+01-16 15:00:40.000 54321 54321 E Error: API request failed
+01-16 15:00:41.100 54321 54321 E Error: HTTP 500 Internal Server Error
+01-16 15:00:42.200 54321 54321 E Error: Endpoint: /api/v1/users
+01-16 15:00:43.300 54321 54321 W Warning: API service may be down
+01-16 15:00:44.400 54321 54321 I Retry: Queuing request for retry
+01-16 15:00:45.500 54321 54321 I Retry: Retrying request
+01-16 15:00:46.600 54321 54321 I Network: Request sent
+01-16 15:00:47.700 54321 54321 D Network: Response received - 200 OK
+01-16 15:00:48.800 54321 54321 I Retry: Request succeeded
+01-16 15:00:50.000 54321 54321 W Warning: Memory usage high
+01-16 15:00:51.100 54321 54321 W Warning: Memory at 90% capacity
+01-16 15:00:52.200 54321 54321 D Memory: Triggering garbage collection
+01-16 15:00:53.300 54321 54321 D Memory: GC completed - 150MB freed
+01-16 15:00:54.400 54321 54321 I Memory: Memory usage normalized
+01-16 15:00:55.500 54321 54321 I Status: System stable again
+01-16 15:01:00.000 54321 54321 E Error: Timeout waiting for response
+01-16 15:01:01.100 54321 54321 E Error: Request timed out after 30 seconds
+01-16 15:01:02.200 54321 54321 E Error: Operation: fetchUserData
+01-16 15:01:03.300 54321 54321 W Warning: User experience may be impacted
+01-16 15:01:04.400 54321 54321 I UI: Showing timeout message
+01-16 15:01:05.500 54321 54321 I UI: Displaying retry button
+01-16 15:01:10.000 54321 54321 E Error: Parse error - invalid JSON
+01-16 15:01:11.100 54321 54321 E Error: Failed to parse response
+01-16 15:01:12.200 54321 54321 E Error: JSON: Unexpected token at position 15
+01-16 15:01:13.300 54321 54321 W Warning: Using default data instead
+01-16 15:01:14.400 54321 54321 I Fallback: Loaded default dataset
+01-16 15:01:15.500 54321 54321 I UI: Displayed data with warning
+01-16 15:01:20.000 54321 54321 F Fatal: Out of memory error
+01-16 15:01:21.100 54321 54321 F Fatal: Cannot allocate 50MB buffer
+01-16 15:01:22.200 54321 54321 F Fatal: Heap space exhausted
+01-16 15:01:23.300 54321 F Fatal: Application needs restart
+01-16 15:01:24.400 54321 I Crash: Saving crash report
+01-16 15:01:25.500 54321 54321 I Crash: Crash report saved
+01-16 15:01:26.600 54321 54321 I UI: Showing crash dialog
+01-16 15:01:27.700 54321 54321 I System: Initiating restart
+01-16 15:01:30.000 54321 54321 I System: Restart completed
+01-16 15:01:31.100 54321 54321 I System: Application ready again
+01-16 15:01:32.200 54321 54321 I Recovery: Services restored
+01-16 15:01:33.300 54321 54321 I UI: Main screen displayed
+01-16 15:01:35.000 54321 54321 W Warning: Previous session data lost
+01-16 15:01:36.100 54321 54321 W Warning: Some unsaved changes
+01-16 15:01:37.200 54321 54321 I UI: Showing warning to user
+01-16 15:01:40.000 54321 54321 I Event: User acknowledged warning
+01-16 15:01:41.100 54321 54321 I Status: User continued working
+01-16 15:01:45.000 54321 54321 I Background: Auto-save triggered
+01-16 15:01:46.100 54321 54321 D Storage: Saving user data
+01-16 15:01:47.200 54321 54321 D Storage: Data saved successfully
+01-16 15:01:50.000 54321 54321 I Performance: Monitoring health
+01-16 15:01:51.100 54321 54321 D Metrics: All systems nominal
+01-16 15:01:52.200 54321 54321 I Status: Running smoothly

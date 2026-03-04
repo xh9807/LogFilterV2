@@ -1,0 +1,106 @@
+01-16 14:42:52.788 62125 62125 I A03D00/com.jd.hm.mall/JSAPP: [[1,"banneractiveIndex",1.0]]
+01-16 14:42:53.100 62125 62125 D Network: Request started - GET https://api.example.com/data
+01-16 14:42:53.250 62125 62125 D Network: Request completed - 200 OK (45ms)
+01-16 14:42:54.500 62125 62125 W Memory: Memory usage is high: 85%
+01-16 14:42:54.750 62125 62125 I Lifecycle: Activity onResume
+01-16 14:42:55.000 62125 62125 E Crash: NullPointerException at MainActivity.onCreate(MainActivity.java:125)
+01-16 14:42:55.100 62125 62125 I Crash: Application crashed, showing error dialog
+01-16 14:42:55.200 62125 62125 I System: Killing process
+01-16 14:42:55.300 62125 62125 I System: Process exited with code 1
+01-16 14:43:00.000 62125 62125 I System: Application starting
+01-16 14:43:00.100 62125 62125 I System: Application onCreate
+01-16 14:43:00.200 62125 62125 D Network: Initializing network manager
+01-16 14:43:00.300 62125 62125 I UI: Setting up main interface
+01-16 14:43:00.400 62125 62125 I Data: Loading user preferences
+01-16 14:43:00.500 62125 62125 I Database: Opening database connection
+01-16 14:43:00.600 62125 62125 I Database: Database connection established
+01-16 14:43:01.000 62125 62125 I Sync: Starting data synchronization
+01-16 14:43:01.500 62125 62125 I Sync: Sync completed - 25 records updated
+01-16 14:43:02.000 62125 62125 I UI: Main activity started
+01-16 14:43:05.000 62125 62125 V Tracker: PageView: home_screen
+01-16 14:43:05.500 62125 62125 I Event: User clicked button "login"
+01-16 14:43:06.000 62125 62125 I Auth: Login flow started
+01-16 14:43:06.500 62125 62125 D Network: POST https://auth.example.com/login
+01-16 14:43:07.000 62125 62125 D Network: Response received - 200 OK
+01-16 14:43:07.200 62125 62125 I Auth: Login successful
+01-16 14:43:07.300 62125 62125 I Session: Session created
+01-16 14:43:07.400 62125 62125 I UI: Navigating to home
+01-16 14:43:08.000 62125 62125 V Tracker: PageView: home_page
+01-16 14:43:10.000 62125 62125 I Event: User scrolled list
+01-16 14:43:10.500 62125 62125 D Performance: Scroll FPS: 60
+01-16 14:43:15.000 62125 62125 I Background: Task started - data refresh
+01-16 14:43:15.500 62125 62125 D Background: Fetching data from API
+01-16 14:43:16.000 62125 62125 D Network: GET https://api.example.com/feed
+01-16 14:43:16.500 62125 62125 D Network: Response received - 200 OK (120ms)
+01-16 14:43:17.000 62125 62125 I Background: Data updated - 15 items
+01-16 14:43:17.100 62125 62125 I UI: Refreshing UI with new data
+01-16 14:43:17.200 62125 62125 I UI: UI refresh completed
+01-16 14:43:20.000 62125 62125 W Battery: Battery level low - 15%
+01-16 14:43:20.500 62125 62125 I Power: Enabling power saving mode
+01-16 14:43:21.000 62125 62125 D Graphics: Reducing frame rate to 30 FPS
+01-16 14:43:25.000 62125 62125 I Event: User clicked item "product_123"
+01-16 14:43:25.500 62125 62125 I Navigation: Navigating to product detail
+01-16 14:43:26.000 62125 62125 V Tracker: PageView: product_detail
+01-16 14:43:26.500 62125 62125 I Product: Loading product details
+01-16 14:43:27.000 62125 62125 D Network: GET https://api.example.com/product/123
+01-16 14:43:27.500 62125 62125 D Network: Response received - 200 OK (80ms)
+01-16 14:43:28.000 62125 62125 I Product: Product details loaded
+01-16 14:43:28.500 62125 62125 I UI: Displaying product information
+01-16 14:43:30.000 62125 62125 I Event: User clicked "add to cart"
+01-16 14:43:30.500 62125 62125 I Cart: Adding item to cart
+01-16 14:43:31.000 62125 62125 D Cart: Item added - Cart total: 1
+01-16 14:43:31.200 62125 62125 I UI: Showing cart summary
+01-16 14:43:32.000 62125 62125 V Tracker: Event: add_to_cart
+01-16 14:43:35.000 62125 62125 I Event: User clicked "checkout"
+01-16 14:43:35.500 62125 62125 I Order: Starting checkout process
+01-16 14:43:36.000 62125 62125 I Payment: Initializing payment
+01-16 14:43:36.500 62125 62125 D Payment: Creating payment session
+01-16 14:43:37.000 62125 62125 D Network: POST https://payment.example.com/create
+01-16 14:43:37.500 62125 62125 D Network: Response received - 200 OK
+01-16 14:43:38.000 62125 62125 I Payment: Payment session created
+01-16 14:43:38.500 62125 62125 I UI: Showing payment dialog
+01-16 14:43:40.000 62125 62125 I Event: User completed payment
+01-16 14:43:40.500 62125 62125 D Network: POST https://payment.example.com/confirm
+01-16 14:43:41.000 62125 62125 D Network: Response received - 200 OK
+01-16 14:43:41.200 62125 62125 I Payment: Payment confirmed
+01-16 14:43:41.400 62125 62125 I Order: Order created - Order ID: ORDER_12345
+01-16 14:43:41.600 62125 62125 I UI: Showing order confirmation
+01-16 14:43:42.000 62125 62125 V Tracker: Event: purchase
+01-16 14:43:45.000 62125 62125 I Order: Sending order confirmation email
+01-16 14:43:45.500 62125 62125 D Email: Sending email to user@example.com
+01-16 14:43:46.000 62125 62125 D Email: Email sent successfully
+01-16 14:43:46.500 62125 62125 I Notification: Order completed notification shown
+01-16 14:43:50.000 62125 62125 I Sync: Starting background sync
+01-16 14:43:50.500 62125 62125 D Sync: Syncing order data
+01-16 14:43:51.000 62125 62125 I Sync: Sync completed
+01-16 14:43:55.000 62125 62125 I Event: Application paused
+01-16 14:43:55.500 62125 62125 I Lifecycle: onPause
+01-16 14:43:56.000 62125 62125 I UI: Saving app state
+01-16 14:43:56.500 62125 62125 D Storage: State saved to preferences
+01-16 14:44:00.000 62125 62125 I Event: Application resumed
+01-16 14:44:00.500 62125 62125 I Lifecycle: onResume
+01-16 14:44:00.600 62125 62125 I UI: Restoring app state
+01-16 14:44:00.800 62125 62125 D Storage: State restored from preferences
+01-16 14:44:01.000 62125 62125 I UI: App resumed successfully
+01-16 14:44:05.000 62125 62125 I Event: User clicked "settings"
+01-16 14:44:05.500 62125 62125 I Navigation: Navigating to settings
+01-16 14:44:06.000 62125 62125 V Tracker: PageView: settings
+01-16 14:44:06.500 62125 62125 I Settings: Loading settings
+01-16 14:44:07.000 62125 62125 I Settings: Settings displayed
+01-16 14:44:10.000 62125 62125 I Event: User changed notification setting
+01-16 14:44:10.500 62125 62125 I Settings: Notification setting updated
+01-16 14:44:11.000 62125 62125 I Settings: Saving settings
+01-16 14:44:11.200 62125 62125 D Storage: Settings saved to preferences
+01-16 14:44:15.000 62125 62125 I Event: User clicked "logout"
+01-16 14:44:15.500 62125 62125 I Auth: Logout initiated
+01-16 14:44:16.000 62125 62125 I Session: Session cleared
+01-16 14:44:16.500 62125 62125 I UI: Navigating to login
+01-16 14:44:17.000 62125 62125 V Tracker: PageView: login
+01-16 14:44:20.000 62125 62125 I Background: Idle - background task scheduled
+01-16 14:44:25.000 62125 62125 D Performance: Memory usage: 180MB
+01-16 14:44:25.500 62125 62125 D Performance: CPU usage: 12%
+01-16 14:44:30.000 62125 62125 I Event: User closed application
+01-16 14:44:30.500 62125 62125 I Lifecycle: onDestroy
+01-16 14:44:30.600 62125 62125 I Cleanup: Cleaning up resources
+01-16 14:44:30.700 62125 62125 I Cleanup: Resources cleaned up
+01-16 14:44:30.800 62125 62125 I System: Application terminated

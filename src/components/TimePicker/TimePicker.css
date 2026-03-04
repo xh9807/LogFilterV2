@@ -1,0 +1,17 @@
+.time-picker {
+  width: 100%;
+}
+
+.time-section {
+  padding: 8px 0;
+}
+
+.time-hint {
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.time-section .ant-select .ant-select-selector {
+  border-radius: 4px;
+}

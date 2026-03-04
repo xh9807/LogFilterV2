@@ -1,0 +1,48 @@
+01-16 10:00:00.000 5001 5001 I OrderService: 开始处理订单
+01-16 10:00:00.100 5002 5002 D DatabaseService: 查询订单信息 - order_id: 12345
+01-16 10:00:00.200 5003 5003 E DatabaseService: 数据库查询失败 - connection timeout
+01-16 10:00:00.300 5003 5003 E OrderService: 订单处理失败 - 数据库错误
+01-16 10:00:01.000 5004 5004 W OrderService: 重试处理订单
+01-16 10:00:01.500 5002 5002 D DatabaseService: 重新连接数据库
+01-16 10:00:02.000 5002 5002 I DatabaseService: 重连成功
+01-16 10:00:02.500 5001 5001 I OrderService: 订单处理成功
+01-16 10:05:00.000 6001 6001 I PaymentService: 处理支付 - amount: 199.99
+01-16 10:05:00.500 6002 6002 D PaymentGateway: 连接支付网关
+01-16 10:05:01.000 6003 6003 E PaymentGateway: 支付网关响应错误 - HTTP 502
+01-16 10:05:01.500 6003 6003 E PaymentService: 支付处理失败
+01-16 10:05:02.000 6004 6004 I PaymentService: 启动备用支付通道
+01-16 10:05:03.000 6005 6005 I PaymentService: 备用通道支付成功
+01-16 10:10:00.000 7001 7001 I FileService: 上传文件 - filename: large_file.zip
+01-16 10:10:05.000 7002 7002 D FileService: 文件大小检查 - 50MB
+01-16 10:10:10.000 7003 7003 W FileService: 文件大小超过限制
+01-16 10:10:10.500 7003 7003 E FileService: 文件上传被拒绝
+01-16 10:15:00.000 8001 8001 I APICall: 调用外部API - endpoint: /api/v1/data
+01-16 10:15:02.000 8002 8002 E APICall: API调用超时 - timeout: 30s
+01-16 10:15:02.500 8002 8002 W APICall: 使用缓存数据
+01-16 10:20:00.000 9001 9001 I EmailService: 发送邮件 - recipient: user@example.com
+01-16 10:20:01.000 9002 9002 E EmailService: SMTP连接失败
+01-16 10:20:02.000 9003 9003 W EmailService: 邮件加入重试队列
+01-16 10:25:00.000 10001 10001 I CacheService: 更新缓存
+01-16 10:25:00.100 10002 10002 E CacheService: 缓存写入失败 - disk full
+01-16 10:25:00.200 10003 10003 F CacheService: 严重错误 - 磁盘空间不足
+01-16 10:25:01.000 10004 10004 I SystemService: 触发磁盘清理
+01-16 10:25:10.000 10004 10004 I SystemService: 清理完成 - 释放空间: 1GB
+01-16 10:30:00.000 11001 11001 I AuthCheck: 验证用户token
+01-16 10:30:00.100 11002 11002 E AuthCheck: Token验证失败 - invalid signature
+01-16 10:30:00.200 11003 11003 W AuthCheck: 可能的攻击行为 - ip: 192.168.1.100
+01-16 10:30:01.000 11004 11004 I SecurityService: 记录安全事件
+01-16 10:35:00.000 12001 12001 I DataSync: 开始数据同步
+01-16 10:35:05.000 12002 12002 E DataSync: 同步失败 - 网络中断
+01-16 10:35:06.000 12003 12003 I DataSync: 等待网络恢复
+01-16 10:40:00.000 13001 13001 I NetworkMonitor: 网络恢复
+01-16 10:40:01.000 12001 12001 I DataSync: 重新开始同步
+01-16 10:40:05.000 12001 12001 I DataSync: 同步成功
+01-16 10:45:00.000 14001 14001 I RenderService: 渲染页面 - page: dashboard
+01-16 10:45:00.500 14002 14002 E RenderService: 渲染错误 - React error
+01-16 10:45:01.000 14003 14003 D RenderService: 错误详情 - TypeError: Cannot read property 'map' of undefined
+01-16 10:45:02.000 14004 14004 W RenderService: 显示错误页面
+01-16 10:50:00.000 15001 15001 I ImportService: 导入数据 - file: data.csv
+01-16 10:50:01.000 15002 15002 D ImportService: 解析CSV文件
+01-16 10:50:02.000 15003 15003 E ImportService: CSV解析错误 - invalid format at line 150
+01-16 10:50:03.000 15004 15004 W ImportService: 跳过错误行，继续导入
+01-16 10:50:10.000 15001 15001 I ImportService: 导入完成 - 成功: 149, 失败: 1

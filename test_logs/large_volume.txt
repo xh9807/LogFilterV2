@@ -1,0 +1,64 @@
+01-15 08:00:00.000 1001 1001 I SystemService: 系统启动初始化开始
+01-15 08:00:00.100 1001 1001 D SystemService: 加载配置文件 /etc/system.conf
+01-15 08:00:00.200 1001 1001 I SystemService: 配置加载完成，共 256 项配置
+01-15 08:00:00.300 1002 1002 V NetworkMonitor: 开始网络状态监控
+01-15 08:00:00.400 1003 1003 D DatabaseService: 数据库连接初始化
+01-15 08:00:00.500 1003 1003 I DatabaseService: 连接数据库成功: localhost:5432/main_db
+01-15 08:00:01.000 1004 1004 I APIService: API 服务启动在端口 8080
+01-15 08:00:01.500 1005 1005 I CacheService: 缓存服务初始化，缓存大小: 512MB
+01-15 08:00:02.000 1001 1001 I SystemService: 所有核心服务启动完成
+01-15 08:00:05.000 2001 2001 I UserController: 用户登录请求 - user_id: 12345
+01-15 08:00:05.100 2001 2001 D UserController: 验证用户凭证
+01-15 08:00:05.200 1003 1003 D DatabaseService: 执行查询: SELECT * FROM users WHERE id=12345
+01-15 08:00:05.300 2001 2001 I UserController: 用户登录成功 - username: johndoe
+01-15 08:00:10.000 2002 2002 I ProductController: 获取产品列表请求
+01-15 08:00:10.100 1003 1003 D DatabaseService: 执行查询: SELECT * FROM products LIMIT 50
+01-15 08:00:10.200 2002 2002 I ProductController: 返回 50 个产品
+01-15 08:00:15.000 2003 2003 I OrderController: 创建订单请求 - user_id: 12345
+01-15 08:00:15.100 2003 2003 D OrderController: 验证库存
+01-15 08:00:15.200 2003 2003 W InventoryService: 库存警告 - product_id: 98765, stock: 5
+01-15 08:00:15.300 1003 1003 D DatabaseService: 开始事务 - 创建订单
+01-15 08:00:15.400 1003 1003 D DatabaseService: 插入订单记录
+01-15 08:00:15.500 2003 2003 I OrderController: 订单创建成功 - order_id: 56789
+01-15 08:00:20.000 1006 1006 I PaymentService: 处理支付请求 - order_id: 56789
+01-15 08:00:20.500 1006 1006 D PaymentService: 连接支付网关
+01-15 08:00:21.000 1006 1006 I PaymentService: 支付成功 - amount: 299.99
+01-15 08:00:21.500 1003 1003 D DatabaseService: 更新订单状态 - order_id: 56789, status: paid
+01-15 08:00:25.000 1007 1007 I NotificationService: 发送订单确认邮件
+01-15 08:00:25.500 1007 1007 D NotificationService: 邮件发送到 user@example.com
+01-15 08:00:26.000 1007 1007 I NotificationService: 邮件发送成功
+01-15 08:05:00.000 2004 2004 I SearchController: 搜索请求 - keyword: "手机"
+01-15 08:05:00.100 1003 1003 D DatabaseService: 执行搜索查询
+01-15 08:05:00.200 2004 2004 I SearchController: 返回 25 个搜索结果
+01-15 08:10:00.000 2005 2005 I ReportController: 生成销售报表请求
+01-15 08:10:00.500 2005 2005 D ReportController: 汇总销售数据
+01-15 08:10:01.000 2005 2005 I ReportController: 报表生成完成 - 总销售额: 15890.50
+01-15 08:15:00.000 1002 1002 W NetworkMonitor: 网络延迟警告 - latency: 250ms
+01-15 08:15:00.100 1002 1002 V NetworkMonitor: 网络状态检查完成
+01-15 08:20:00.000 1008 1008 I BackupService: 开始数据库备份
+01-15 08:20:00.500 1008 1008 D BackupService: 创建数据库快照
+01-15 08:20:05.000 1008 1008 I BackupService: 备份完成 - backup_id: 20240115_082005
+01-15 08:30:00.000 2006 2006 I UserController: 用户注销 - user_id: 12345
+01-15 08:30:00.100 2006 2006 I UserController: 注销成功
+01-15 08:35:00.000 1009 1009 E DatabaseService: 数据库连接错误 - connection timeout
+01-15 08:35:00.500 1009 1009 E DatabaseService: 尝试重新连接...
+01-15 08:35:01.000 1009 1009 I DatabaseService: 重新连接成功
+01-15 08:40:00.000 2010 2010 W APIGateway: API 调用频率警告 - ip: 192.168.1.100
+01-15 08:40:00.100 2010 2010 D APIGateway: 请求计数: 150/minute
+01-15 08:45:00.000 1010 1010 I LogCleanup: 清理旧日志文件
+01-15 08:45:00.500 1010 1010 D LogCleanup: 删除 30 天前的日志
+01-15 08:45:01.000 1010 1010 I LogCleanup: 日志清理完成 - 释放空间: 256MB
+01-15 08:50:00.000 2011 2011 I FileUpload: 文件上传请求 - filename: document.pdf
+01-15 08:50:01.000 2011 2011 I FileUpload: 上传完成 - file_id: abc123, size: 2.5MB
+01-15 08:55:00.000 1011 1011 W CacheService: 缓存命中率低 - hit_rate: 45%
+01-15 08:55:00.100 1011 1011 D CacheService: 优化缓存策略
+01-15 09:00:00.000 1001 1001 I SystemService: 执行定时健康检查
+01-15 09:00:00.500 1001 1001 I SystemService: 健康检查通过 - 所有服务正常
+01-15 09:05:00.000 2012 2012 I AnalyticsService: 记录用户行为 - action: page_view
+01-15 09:05:00.100 1003 1003 D DatabaseService: 插入分析数据
+01-15 09:10:00.000 2013 2013 I ExportService: 导出数据请求 - format: csv
+01-15 09:10:05.000 2013 2013 I ExportService: 导出完成 - records: 1500
+01-15 09:15:00.000 1012 1012 V SecurityAudit: 记录安全审计日志
+01-15 09:15:00.100 1012 1012 V SecurityAudit: 审计事件: admin_login
+01-15 09:20:00.000 2014 2014 I SyncService: 开始数据同步
+01-15 09:20:01.000 2014 2014 I SyncService: 同步完成 - 50 条记录

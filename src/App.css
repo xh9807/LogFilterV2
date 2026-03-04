@@ -1,0 +1,141 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-header {
+  background: #fff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e8e8e8;
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+.app-header .subtitle {
+  margin: 4px 0 0 0;
+  color: #8c8c8c;
+  font-size: 13px;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  width: 450px;
+  min-width: 450px;
+  background: #fff;
+  border-right: 1px solid #e8e8e8;
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+.app-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f0f2f5;
+}
+
+.app-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-main::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 4px;
+}
+
+.app-main::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+.sidebar-section {
+  margin-bottom: 16px;
+}
+
+.sidebar-section:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid #e8e8e8;
+  z-index: 10;
+}
+
+/* Card样式优化 */
+.app-sidebar .ant-card,
+.app-main .ant-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+}
+
+.app-sidebar .ant-card {
+  margin-bottom: 0;
+}
+
+.app-sidebar .ant-card-head {
+  padding: 12px 16px;
+  min-height: 48px;
+}
+
+.app-sidebar .ant-card-body {
+  padding: 16px;
+}
+
+/* 按钮组优化 */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.action-buttons .ant-btn {
+  flex: 1;
+}
+
+/* 加载状态优化 */
+.loading-card {
+  text-align: center;
+  padding: 24px;
+}
+
+/* 统计卡片优化 */
+.stats-card {
+  height: 100%;
+}
+
+.stats-card .ant-card-body {
+  height: 100%;
+}
