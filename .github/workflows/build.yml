@@ -10,9 +10,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [macos-latest, windows-latest]
+      fail-fast: false
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
 
     steps:
       - name: Checkout code
@@ -21,14 +23,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Build application
-        run: npm run build
+        run: |
+          npm ci
+          npm install -g electron-builder
 
       - name: Build Electron app
         run: npm run electron:build
@@ -40,12 +40,12 @@ jobs:
         with:
           name: LogFilterV2-${{ matrix.os }}
           path: release/*
-          retention-days: 30
+          retention-days: 7
+          if-no-files-found: ignore
 
   release:
     needs: build
     runs-on: ubuntu-latest
-
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
@@ -54,16 +54,16 @@ jobs:
 
       - name: Download all artifacts
         uses: actions/download-artifact@v3
+        with:
+          path: artifacts
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            LogFilterV2-macos-latest/**/*
-            LogFilterV2-windows-latest/**/*
-            LogFilterV2-ubuntu-latest/**/*
+          files: artifacts/**/*.dmg,artifacts/**/*.exe,artifacts/**/*.AppImage
           draft: false
           prerelease: false
           generate_release_notes: true
+          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
