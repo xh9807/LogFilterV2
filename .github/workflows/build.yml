@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build Electron App
 
 on:
   push:
@@ -7,63 +7,56 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
-      fail-fast: false
-
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
-
+  build_macos:
+    runs-on: macos-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-
+          node-version: 18
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g electron-builder
-
-      - name: Build Electron app
+        run: npm ci
+      - name: Build
         run: npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
-          name: LogFilterV2-${{ matrix.os }}
-          path: release/*
-          retention-days: 7
-          if-no-files-found: ignore
+          name: macos-build
+          path: release/*.dmg
+
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run electron:build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: release/*.exe
 
   release:
-    needs: build
+    needs: [build_macos, build_windows]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Download all artifacts
-        uses: actions/download-artifact@v3
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           path: artifacts
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v1
         with:
-          files: artifacts/**/*.dmg,artifacts/**/*.exe,artifacts/**/*.AppImage
+          files: artifacts/**/*
           draft: false
           prerelease: false
           generate_release_notes: true
-          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
