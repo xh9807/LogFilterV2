@@ -1,7 +1,7 @@
 import { writeFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { dialog } from 'electron';
-import type { LogEntry } from '../../src/types';
+import type { LogEntry } from '@types';
 
 /**
  * 导出服务类

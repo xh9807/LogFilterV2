@@ -7,7 +7,11 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: []
+      }
+    }),
     electron([
       {
         // Main process entry
@@ -52,7 +56,13 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
       '@store': path.resolve(__dirname, './src/store'),
       '@types': path.resolve(__dirname, './src/types'),
+      '@constants': path.resolve(__dirname, './src/constants'),
     },
+  },
+  esbuild: {
+    loader: 'tsx',
+    include: ['src/**/*.{ts,tsx}', 'electron/**/*.{ts,tsx}'],
+    exclude: ['node_modules/**']
   },
   server: {
     port: 5173,

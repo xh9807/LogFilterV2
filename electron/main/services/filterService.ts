@@ -1,4 +1,4 @@
-import type { LogEntry, FilterConfig, LogLevel } from '../../src/types';
+import type { LogEntry, FilterConfig, LogLevel } from '@types';
 
 /**
  * 从日志条目中提取时间

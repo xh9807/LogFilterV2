@@ -9,7 +9,7 @@ import {
   BugOutlined,
 } from '@ant-design/icons';
 import type { LogLevel } from '@types';
-import { LOG_LEVEL_CONFIGS } from '@types';
+import { LOG_LEVEL_CONFIGS } from '@constants/logLevelConfigs';
 import { useLogStore } from '@store/logStore';
 import './LogStatistics.css';
 

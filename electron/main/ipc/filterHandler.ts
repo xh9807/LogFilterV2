@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron';
 import { filterService } from '../services/filterService';
-import type { LogEntry, FilterConfig } from '../../src/types';
+import type { LogEntry, FilterConfig } from '@types';
 
 /**
  * 注册过滤相关的IPC处理器

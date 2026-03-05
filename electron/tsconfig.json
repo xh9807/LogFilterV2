@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "CommonJS",
+    "module": "ES2020",
     "lib": ["ES2020"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "outDir": "../dist-electron",
-    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["../src/*"]
+      "@types": ["../src/types"]
     }
   },
   "include": ["**/*.ts"],

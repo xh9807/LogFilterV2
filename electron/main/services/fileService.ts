@@ -1,7 +1,7 @@
 import { dialog } from 'electron';
 import { stat, readdir } from 'fs/promises';
 import { join, extname, basename } from 'path';
-import type { FileInfo } from '../../src/types';
+import type { FileInfo } from '@types';
 
 /**
  * 文件大小限制：100MB

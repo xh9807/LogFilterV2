@@ -9,39 +9,69 @@ on:
 jobs:
   build_macos:
     runs-on: macos-latest
+    timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - name: Install dependencies
         run: npm ci
-      - name: Build
+
+      - name: Build macOS app
         run: npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v3
+
+      - name: List release files
+        run: ls -R release
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: macos-build
-          path: release/*.dmg
+          name: macos-dmg
+          path: |
+            release/*.dmg
+            release/*.zip
+          retention-days: 7
+          if-no-files-found: warn
 
   build_windows:
     runs-on: windows-latest
+    timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - name: Install dependencies
         run: npm ci
-      - name: Build
+
+      - name: Build Windows app
         run: npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v3
+
+      - name: List release files
+        run: dir release
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: windows-build
-          path: release/*.exe
+          name: windows-exe
+          path: |
+            release/*.exe
+            release/*.zip
+          retention-days: 7
+          if-no-files-found: warn
 
   release:
     needs: [build_macos, build_windows]
@@ -49,14 +79,19 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
         with:
           path: artifacts
-      - uses: softprops/action-gh-release@v1
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
           files: artifacts/**/*
           draft: false
           prerelease: false
           generate_release_notes: true
+          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

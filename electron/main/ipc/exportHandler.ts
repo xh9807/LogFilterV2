@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron';
 import { exportService } from '../services/exportService';
-import type { LogEntry } from '../../src/types';
+import type { LogEntry } from '@types';
 
 /**
  * 注册导出相关的IPC处理器

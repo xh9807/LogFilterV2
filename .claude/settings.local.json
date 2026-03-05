@@ -15,7 +15,18 @@
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(git show-ref:*)",
+      "Bash(/usr/bin/git tag:*)",
+      "Bash(/usr/bin/git push origin v1.0.0)",
+      "Bash(gh run list:*)",
+      "Bash(python3:*)",
+      "Bash(git tag:*)",
+      "Bash(/usr/bin/git push origin :refs/tags/v1.0.0)",
+      "Bash(npm run electron:build:*)",
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(tee:*)"
     ]
   }
 }

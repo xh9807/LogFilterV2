@@ -1,7 +1,7 @@
 import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 import { EventEmitter } from 'events';
-import type { LogEntry } from '../../src/types';
+import type { LogEntry } from '@types';
 
 /**
  * 文件读取进度信息

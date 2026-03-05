@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import type { FileInfo, LogEntry, FilterConfig } from '../../src/types';
+import type { FileInfo, LogEntry, FilterConfig } from '@types';
 
 // 暴露受保护的API到渲染进程
 contextBridge.exposeInMainWorld('electronAPI', {

@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron';
 import { fileService } from '../services/fileService';
-import type { FileInfo } from '../../src/types';
+import type { FileInfo } from '@types';
 
 /**
  * 注册文件相关的IPC处理器

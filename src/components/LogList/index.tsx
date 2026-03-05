@@ -3,7 +3,7 @@ import { areEqual, FixedSizeList as List, ListChildComponentProps } from 'react-
 import { Card, Tag, Typography, Empty, Space, Button, Dropdown, message } from 'antd';
 import { FileTextOutlined, DownloadOutlined, FileTextOutlined as FileIcon } from '@ant-design/icons';
 import type { LogEntry, LogLevel } from '@types';
-import { LOG_LEVEL_CONFIGS } from '@types';
+import { LOG_LEVEL_CONFIGS } from '@constants/logLevelConfigs';
 import { useLogStore } from '@store/logStore';
 import './LogList.css';
 
