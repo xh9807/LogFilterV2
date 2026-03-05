@@ -1,9 +1,6 @@
 name: Build Electron App
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -24,9 +21,6 @@ jobs:
 
       - name: Build macOS app
         run: npm run electron:build
-        env:
-          GH_TOKEN: ""
-          publish: never
 
       - name: List release files
         run: ls -R release
@@ -55,9 +49,6 @@ jobs:
 
       - name: Build Windows app
         run: npm run electron:build
-        env:
-          GH_TOKEN: ""
-          publish: never
 
       - name: List release files
         run: dir release
