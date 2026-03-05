@@ -30,15 +30,12 @@ jobs:
       - name: List release files
         run: ls -R release
 
-      - name: Upload artifacts
+      - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
-          name: macos-dmg
-          path: |
-            release/*.dmg
-            release/*.zip
-          retention-days: 7
-          if-no-files-found: warn
+          name: HiLog日志过滤器-macOS-arm64-v1.0.0
+          path: release/*.dmg
+          retention-days: 30
 
   build_windows:
     runs-on: windows-latest
@@ -63,35 +60,9 @@ jobs:
       - name: List release files
         run: dir release
 
-      - name: Upload artifacts
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: windows-exe
-          path: |
-            release/*.exe
-            release/*.zip
-          retention-days: 7
-          if-no-files-found: warn
-
-  release:
-    needs: [build_macos, build_windows]
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: artifacts/**/*
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-          fail_on_unmatched_files: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: HiLog日志过滤器-Windows-x64-v1.0.0
+          path: release/*.exe
+          retention-days: 30
