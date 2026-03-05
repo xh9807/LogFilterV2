@@ -2,6 +2,14 @@ name: Build Electron App
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
 
 jobs:
   build_macos:
@@ -28,9 +36,9 @@ jobs:
       - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
-          name: HiLog日志过滤器-macOS-arm64-v1.0.0
+          name: HiLog日志过滤器-macOS-arm64
           path: release/*.dmg
-          retention-days: 30
+          retention-days: 7
 
   build_windows:
     runs-on: windows-latest
@@ -56,6 +64,65 @@ jobs:
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: HiLog日志过滤器-Windows-x64-v1.0.0
+          name: HiLog日志过滤器-Windows-x64
           path: release/*.exe
-          retention-days: 30
+          retention-days: 7
+
+  create_release:
+    needs: [build_macos, build_windows]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download macOS artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: HiLog日志过滤器-macOS-arm64
+          path: macos-artifacts
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: HiLog日志过滤器-Windows-x64
+          path: windows-artifacts
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ inputs.version }}
+          name: HiLog日志过滤器 ${{ inputs.version }}
+          body: |
+            ## HiLog日志过滤器 ${{ inputs.version }}
+
+            鸿蒙HiLog日志分析工具 - 跨平台桌面应用
+
+            ## 下载安装
+
+            - **macOS (Apple Silicon)**: 下载 `.dmg` 文件
+            - **Windows (x64)**: 下载 `.exe` 文件
+
+            ## 功能特性
+
+            - 支持大文件流式读取
+            - 多维度日志过滤（时间、等级、模块、进程、标签、关键词）
+            - 实时统计信息展示
+            - 日志导出功能
+
+            ## 使用说明
+
+            1. 下载对应系统的安装包
+            2. macOS: 打开 .dmg 文件，将应用拖到应用程序文件夹
+            3. Windows: 运行 .exe 安装程序
+            4. 启动应用，选择 HiLog 日志文件即可开始分析
+
+          files: |
+            macos-artifacts/*.dmg
+            windows-artifacts/*.exe
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
