@@ -4,13 +4,6 @@ import type { LogLevel, LogLevelConfig } from './types';
  * 日志等级配置
  */
 export const LOG_LEVEL_CONFIGS: Record<LogLevel, LogLevelConfig> = {
-  V: {
-    level: 'V' as LogLevel,
-    label: 'Verbose',
-    color: '#8c8c8c',
-    backgroundColor: '#f5f5f5',
-    icon: 'V',
-  },
   D: {
     level: 'D' as LogLevel,
     label: 'Debug',

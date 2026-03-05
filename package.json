@@ -1,6 +1,6 @@
 {
   "name": "log-filter-v2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "鸿蒙HiLog日志过滤系统 - 跨平台桌面应用",
   "main": "dist-electron/main/index.js",
   "author": "Your Name",

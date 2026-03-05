@@ -2,7 +2,6 @@
  * 日志等级枚举
  */
 export enum LogLevel {
-  VERBOSE = 'V',
   DEBUG = 'D',
   INFO = 'I',
   WARN = 'W',
@@ -25,13 +24,6 @@ export interface LogLevelConfig {
  * 日志等级颜色映射
  */
 export const LOG_LEVEL_CONFIGS: Record<LogLevel, LogLevelConfig> = {
-  [LogLevel.VERBOSE]: {
-    level: LogLevel.VERBOSE,
-    label: 'Verbose',
-    color: '#8c8c8c',
-    backgroundColor: '#f5f5f5',
-    icon: 'V',
-  },
   [LogLevel.DEBUG]: {
     level: LogLevel.DEBUG,
     label: 'Debug',

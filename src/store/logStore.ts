@@ -84,7 +84,6 @@ const initialState: AppState = {
     totalLogs: 0,
     filteredLogs: 0,
     levelCounts: {
-      V: 0,
       D: 0,
       I: 0,
       W: 0,
@@ -99,7 +98,6 @@ const initialState: AppState = {
  */
 function calculateStatistics(logs: LogEntry[]) {
   const levelCounts: Record<LogLevel, number> = {
-    V: 0,
     D: 0,
     I: 0,
     W: 0,
@@ -168,7 +166,6 @@ export const useLogStore = create<LogStore>()(
       setFilteredLogs: (logs) => {
         set((state) => {
           const levelCounts: Record<LogLevel, number> = {
-            V: 0,
             D: 0,
             I: 0,
             W: 0,
@@ -200,7 +197,6 @@ export const useLogStore = create<LogStore>()(
             totalLogs: 0,
             filteredLogs: 0,
             levelCounts: {
-              V: 0,
               D: 0,
               I: 0,
               W: 0,

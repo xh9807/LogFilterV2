@@ -19,7 +19,6 @@ const { Text } = Typography;
  * 等级统计配置
  */
 const LEVEL_STATS = [
-  { level: 'V' as LogLevel, label: 'Verbose', color: 'default', icon: <BugOutlined /> },
   { level: 'D' as LogLevel, label: 'Debug', color: 'success', icon: <BugOutlined /> },
   { level: 'I' as LogLevel, label: 'Info', color: 'processing', icon: <InfoCircleOutlined /> },
   { level: 'W' as LogLevel, label: 'Warn', color: 'warning', icon: <ExclamationCircleOutlined /> },
@@ -46,7 +45,6 @@ export const LogStatistics: React.FC = () => {
    */
   const levelPercentages = useMemo(() => {
     const percentages: Record<LogLevel, number> = {
-      V: 0,
       D: 0,
       I: 0,
       W: 0,

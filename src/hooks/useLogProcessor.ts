@@ -38,21 +38,37 @@ export const useLogProcessor = () => {
 
             // 通过IPC读取文件内容
             const content = await window.electronAPI.readLogFile(filePath);
+
+            // 检查文件大小，如果过大则分块处理
+            const CHUNK_SIZE = 10000; // 每次处理10000行
             const lines = content.split('\n');
 
             totalLines += lines.length;
 
-            // 解析日志
-            const { logs, stats } = parseLogLinesWithStats(lines, filePath);
+            // 分块解析日志以避免堆栈溢出
+            for (let chunkStart = 0; chunkStart < lines.length; chunkStart += CHUNK_SIZE) {
+              const chunkEnd = Math.min(chunkStart + CHUNK_SIZE, lines.length);
+              const chunk = lines.slice(chunkStart, chunkEnd);
 
-            allLogs.push(...logs);
-            parsedCount += stats.parsedLines;
-            failedCount += stats.failedLines;
+              // 解析当前块
+              const { logs, stats } = parseLogLinesWithStats(chunk, filePath);
 
-            console.log(`文件 ${filePath} 解析完成:`, stats);
+              allLogs.push(...logs);
+              parsedCount += stats.parsedLines;
+              failedCount += stats.failedLines;
+
+              // 更新进度
+              const progress = Math.round((chunkEnd / lines.length) * 100);
+              setLoading(true, `正在解析文件 ${i + 1}/${filePaths.length}... ${progress}%`);
+
+              // 让UI有机会更新
+              await new Promise(resolve => setTimeout(resolve, 0));
+            }
+
+            console.log(`文件 ${filePath} 解析完成:`, { parsedCount, failedCount });
           } catch (error) {
             console.error(`处理文件失败: ${filePath}`, error);
-            message.warning(`文件读取失败: ${filePath}`);
+            message.error(`文件读取失败: ${filePath}`);
             // 继续处理下一个文件
           }
         }

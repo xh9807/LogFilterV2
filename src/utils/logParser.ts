@@ -18,7 +18,6 @@ const DATE_REGEX = /^(\d{2})-(\d{2})$/;
  * 日志等级映射
  */
 const LOG_LEVEL_MAP: Record<string, LogLevel> = {
-  V: 'V' as LogLevel,
   D: 'D' as LogLevel,
   I: 'I' as LogLevel,
   W: 'W' as LogLevel,
@@ -216,7 +215,6 @@ export function parseLogLinesWithStats(lines: string[], sourceFile: string): {
     failedLines: 0,
     emptyLines: 0,
     levelCounts: {
-      V: 0,
       D: 0,
       I: 0,
       W: 0,

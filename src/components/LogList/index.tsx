@@ -27,14 +27,13 @@ const LogRow: React.FC<ListChildComponentProps<Array<LogEntry>>> = ({ data, inde
 
   return (
     <div className="log-row" style={style} onClick={handleClick}>
-      <Space size="small" style={{ width: '100%' }}>
+      <div className="log-row-content">
         {/* 日志等级 */}
         <Tag
           color={levelConfig.color}
+          className="log-level-tag"
           style={{
             margin: 0,
-            minWidth: 40,
-            textAlign: 'center',
             backgroundColor: levelConfig.backgroundColor,
           }}
         >
@@ -42,25 +41,25 @@ const LogRow: React.FC<ListChildComponentProps<Array<LogEntry>>> = ({ data, inde
         </Tag>
 
         {/* 时间戳 */}
-        <Text className="log-time" style={{ minWidth: 150, fontSize: '12px' }}>
+        <Text className="log-time" style={{ fontSize: '12px' }}>
           {log.timestamp}
         </Text>
 
         {/* PID/TID */}
-        <Text type="secondary" style={{ minWidth: 100, fontSize: '11px' }}>
+        <Text type="secondary" className="log-pid-tid" style={{ fontSize: '11px' }}>
           {log.pid}/{log.tid}
         </Text>
 
         {/* Tag */}
-        <Text className="log-tag" style={{ fontSize: '12px', maxWidth: 200 }} ellipsis>
+        <Text className="log-tag" style={{ fontSize: '12px' }} ellipsis>
           {log.tag}
         </Text>
 
         {/* 内容 */}
-        <Text className="log-content" style={{ fontSize: '12px', flex: 1 }} ellipsis>
+        <Text className="log-content" style={{ fontSize: '12px' }} ellipsis>
           {log.content}
         </Text>
-      </Space>
+      </div>
     </div>
   );
 };
