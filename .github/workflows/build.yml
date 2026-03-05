@@ -25,7 +25,8 @@ jobs:
       - name: Build macOS app
         run: npm run electron:build
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ""
+          publish: never
 
       - name: List release files
         run: ls -R release
@@ -55,7 +56,8 @@ jobs:
       - name: Build Windows app
         run: npm run electron:build
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ""
+          publish: never
 
       - name: List release files
         run: dir release
